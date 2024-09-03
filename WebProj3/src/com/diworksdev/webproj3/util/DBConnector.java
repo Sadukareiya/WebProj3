@@ -5,41 +5,42 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DBConnector {
-	/**
-	* JDBC ドライバー名
-	*/
-	private static String driverName = "com.mysql.jdbc.Driver";
-	/**
-	* データベース接続 URL
-	*/
-	private static String url = "jdbc:mysql://localhost/testdb";
-	/**
-	* データベース接続ユーザ名
-	*/
-	private static String user = "root";
-	/**
-	* データベース接続パスワード
-	*/
-	private static String password = "mysql";
 
-	public Connection getConnection() {
+    /**
+     * JDBC ドライバー名
+     */
+    private static final String DRIVER_NAME = "com.mysql.jdbc.Driver";;
 
-		Connection con = null;
+    /**
+     * データベース接続 URL
+     */
+    private static final String URL = "jdbc:mysql://localhost/testdb";
 
-		try {
-			Class.forName(driverName);
+    /**
+     * データベース接続ユーザ名
+     */
+    private static final String USER = "root";
 
-			con = DriverManager.getConnection(url, user, password);
+    /**
+     * データベース接続パスワード
+     */
+    private static final String PASSWORD = "mysql";
 
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-
-		return con;
-
-	}
-
+    /**
+     * データベースへの接続を取得します。
+     *
+     * @return Connection データベース接続
+     */
+    public Connection getConnection() {
+        Connection con = null;
+        try {
+            Class.forName(DRIVER_NAME);
+            con = DriverManager.getConnection(URL, USER, PASSWORD);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return con;
+    }
 }
