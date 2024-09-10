@@ -24,13 +24,5 @@
             <result name="success">welcome.jsp</result>
         </action>
 
-        <!-- LoginAction のアクション設定 -->
-        <action name="LoginAction"
-                class="com.diworksdev.webproj3.action.LoginAction"
-                method="execute">
-            <result name="success">login.jsp</result>
-            <result name="error">loginError.jsp</result>
-        </action>
-
     </package>
 </struts>
